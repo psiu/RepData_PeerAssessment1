@@ -62,16 +62,6 @@ to review the code for your analysis**.
 For the plotting aspects of this assignment, feel free to use any
 plotting system in R (i.e., base, lattice, ggplot2)
 
-Fork/clone the [GitHub repository created for this
-assignment](http://github.com/rdpeng/RepData_PeerAssessment1). You
-will submit this assignment by pushing your completed files into your
-forked repository on GitHub. The assignment submission will consist of
-the URL to your GitHub repository and the SHA-1 commit ID for your
-repository state.
-
-NOTE: The GitHub repository also contains the dataset for the
-assignment so you do not have to download the data separately.
-
 
 
 ### Loading and preprocessing the data
