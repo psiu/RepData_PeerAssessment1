@@ -9,6 +9,16 @@ output:
 
 ## Loading and preprocessing the data
 ```{r loading,echo=TRUE}
+
+rawDataFile <- "repdata-data-activity.zip"
+downloadURL <- "https://github.com/psiu/RepData_PeerAssessment1/raw/master/repdata-data-activity.zip"
+
+if(!file.exists(rawDataFile)){
+    download.file(downloadURL, rawDataFile)
+}
+
+
+
 ```
 
 
