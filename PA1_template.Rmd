@@ -6,20 +6,31 @@ output:
 ---
 
 
-## Loading and preprocessing the data
 
+## Loading and preprocessing the data
+```{r loading,echo=TRUE}
+```
 
 
 ## What is mean total number of steps taken per day?
+```{r mean_steps,echo=TRUE}
 
+```
 
 
 ## What is the average daily activity pattern?
+```{r mean_daily_activity,echo=TRUE}
 
+```
 
 
 ## Imputing missing values
+```{r imput,echo=TRUE}
 
+```
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
+```{r weekday_weekends,echo=TRUE}
+
+```
