@@ -48,9 +48,9 @@ text(mean_steps + 2000, 20 , "Mean")
 
 Looking at the raw data set:
 
-The mean number of steps per day is 10766.19, denoted by the red line above
+The **mean** number of steps per day is **10766.19**, denoted by the red line above
 
-The median number of steps per day is 10765
+The **median** number of steps per day is **10765**
 
 
 ## What is the average daily activity pattern?
@@ -59,6 +59,7 @@ The median number of steps per day is 10765
 interval_avg_steps <- activity %>% group_by(interval) %>% summarize(avg_steps = mean(steps, na.rm=TRUE))
 
 high_score <- max(interval_avg_steps$avg_steps)
+high_score_interval <- interval_avg_steps[interval_avg_steps$avg_steps == high_score,]$interval
 
 ggplot(interval_avg_steps, aes(x= interval, y = avg_steps)) +
     geom_line() +
@@ -69,7 +70,7 @@ ggplot(interval_avg_steps, aes(x= interval, y = avg_steps)) +
 
 ![](PA1_template_files/figure-html/mean_daily_activity-1.png) 
 
-The maximum number of steps in any given interval period is 206.17
+The maximum number of steps during the interval period **835** is **206.17**
 
 ## Imputing missing values
 
@@ -77,7 +78,7 @@ The maximum number of steps in any given interval period is 206.17
 num_NA <- sum(is.na(activity$steps))
 ```
 
-Number of NA values in the data step is 2304
+Number of **NA values** in the data step is **2304**
 
 In an attempt to normalize the data, we will replace the null values in the data set with the average value within the same interval.
 
@@ -110,9 +111,9 @@ text(mean_steps + 2000, 20 , "Mean")
 
 Normalized data set:
 
-The mean number of steps per day is 10766.19, denoted by the red line above
+The **mean** number of steps per day is **10766.19**, denoted by the red line above
 
-The median number of steps per day is 10766.19
+The **median** number of steps per day is **10766.19**
 
 Imputing the missing values did not have a big impact on the estimated total daily number of steps.
 

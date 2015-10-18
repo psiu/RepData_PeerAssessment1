@@ -49,9 +49,9 @@ text(mean_steps + 2000, 20 , "Mean")
 
 Looking at the raw data set:
 
-The mean number of steps per day is `r round(mean_steps,2)`, denoted by the red line above
+The **mean** number of steps per day is **`r round(mean_steps,2)`**, denoted by the red line above
 
-The median number of steps per day is `r median_steps`
+The **median** number of steps per day is **`r median_steps`**
 
 
 ## What is the average daily activity pattern?
@@ -59,6 +59,7 @@ The median number of steps per day is `r median_steps`
 interval_avg_steps <- activity %>% group_by(interval) %>% summarize(avg_steps = mean(steps, na.rm=TRUE))
 
 high_score <- max(interval_avg_steps$avg_steps)
+high_score_interval <- interval_avg_steps[interval_avg_steps$avg_steps == high_score,]$interval
 
 ggplot(interval_avg_steps, aes(x= interval, y = avg_steps)) +
     geom_line() +
@@ -67,14 +68,14 @@ ggplot(interval_avg_steps, aes(x= interval, y = avg_steps)) +
     ggtitle("Average steps over daily time interval")
 ```
 
-The maximum number of steps in any given interval period is `r round(high_score, 2)`
+The maximum number of steps during the interval period **`r high_score_interval`** is **`r round(high_score, 2)`**
 
 ## Imputing missing values
 ```{r na_count,echo=TRUE}
 num_NA <- sum(is.na(activity$steps))
 ```
 
-Number of NA values in the data step is `r num_NA`
+Number of **NA values** in the data step is **`r num_NA`**
 
 In an attempt to normalize the data, we will replace the null values in the data set with the average value within the same interval.
 
@@ -105,9 +106,9 @@ text(mean_steps + 2000, 20 , "Mean")
 
 Normalized data set:
 
-The mean number of steps per day is `r round(mean_steps,2)`, denoted by the red line above
+The **mean** number of steps per day is **`r round(mean_steps,2)`**, denoted by the red line above
 
-The median number of steps per day is `r round(median_steps,2)`
+The **median** number of steps per day is **`r round(median_steps,2)`**
 
 Imputing the missing values did not have a big impact on the estimated total daily number of steps.
 
