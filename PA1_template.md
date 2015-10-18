@@ -112,8 +112,26 @@ Normalized data set:
 
 The mean number of steps per day is 10766.19, denoted by the red line above
 
-The median number of steps per day is 10766.1886792
+The median number of steps per day is 10766.19
+
+Imputing the missing values did not have a big impact on the estimated total daily number of steps.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
+```r
+## Add weekday / weekend factor
+activity_norm$week <- "Weekday"
+activity_norm[wday(activity_norm$date) == 1 | wday(activity_norm$date) == 7, "week"] <- "Weekend"
+activity_norm$week <- as.factor(activity_norm$week)
+
+## Average the data over interval and weekday/weekend
+averaged_norm <- activity_norm %>% group_by(week, interval) %>% summarize(steps = mean(steps))
+
+ggplot(averaged_norm, aes(x = interval, y = steps)) +
+    facet_grid(week ~ .) +
+    geom_line() +
+    labs(title = "Average steps on weekdays vs weekend", x = "Interval (min)", y = "Steps (average)")
+```
+
+![](PA1_template_files/figure-html/weekday_weekends-1.png) 
